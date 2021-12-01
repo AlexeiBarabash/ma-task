@@ -24,6 +24,12 @@ kubectl create secret docker-registry docker-credentials \
 ```bash
 docker build -t <registry>/custom-jenkins-agent-v1 . # Docker file on this Repo
 docker push <registry>/custom-jenkins-agent-v1 
+# Now need to edit the image on the Jenkinsfiles on the servies
+```
+> Give Jenkins the pemissions to access Kuberentes API and create pods
+
+```bash
+kubectl create clusterrolebinding jenkinsrolebinding --clusterrole=cluster-admin -- group=system:serviceaccounts:jenkins
 ```
 
 > Access Jenkins with username 'admin' and password from top
