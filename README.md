@@ -20,6 +20,11 @@ kubectl create secret docker-registry docker-credentials \
     --docker-password='<TOKEN>' \
     -n jenkins
 ```
+> Created Custom Jenkins Agent with Helm 
+```bash
+docker build -t <registry>/custom-jenkins-agent-v1 . # Docker file on this Repo
+docker push <registry>/custom-jenkins-agent-v1 
+```
 
 > Access Jenkins with username 'admin' and password from top
 ```bash
